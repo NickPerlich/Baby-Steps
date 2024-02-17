@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private GameLogic gl;
     private bool playerIsAlive;
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource audioPlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +21,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if space bar is press the player moves up
+        // if space bar is pressed the player moves up
         if (Input.GetKeyDown(KeyCode.Space) && playerIsAlive) {
             rb.velocity = Vector2.up * jumpStrenght;
+            audioPlayer.Play();
         }
         if (rb.velocity.y > 0)
         {
